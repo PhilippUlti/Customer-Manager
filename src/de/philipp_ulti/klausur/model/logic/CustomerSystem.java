@@ -38,7 +38,7 @@ public class CustomerSystem extends Observable implements Visitable<Customer> {
             }
         }
         customers.add(toAdd);
-        StoreCustomers.storeCustomerOnDisk(toAdd);
+        StoreCustomers.storeCustomerOnDiskConcurrent(toAdd);
         this.setChanged();
         this.notifyObservers();
         return true;
@@ -47,7 +47,7 @@ public class CustomerSystem extends Observable implements Visitable<Customer> {
     public void removeCustomer(Customer toRemove) {
         if(customers.contains(toRemove)) {
             customers.remove(toRemove);
-            RemoveCustomers.removeCustomerFromDisk(toRemove.getCustomerId());
+            RemoveCustomers.removeCustomerFromDiskConcurrent(toRemove.getCustomerId());
             this.setChanged();
             this.notifyObservers();
         }

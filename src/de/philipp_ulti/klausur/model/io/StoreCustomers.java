@@ -33,6 +33,7 @@ public class StoreCustomers {
                 storeCustomerOnDisk(toStore);
             }
         };
+        t.start();
     }
 
     private static void createFile(File file1) {

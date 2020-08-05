@@ -24,6 +24,7 @@ public class RemoveCustomers {
               removeCustomerFromDisk(customerId);
           }
         };
+        t.start();
     }
 
 }
